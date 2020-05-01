@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>
+			Portfolio
+		</title>
+	</head>
+	<style>
+		#headerFloat > div{
+			font-size: 20px;
+			margin: 22px 20px 22px 20px;
+			font-weight: bold;
+		}
+		#headerFloat > .header:hover{
+			cursor: pointer;
+		}
+		#intro > div{
+			padding: 3px 0px 3px;
+			width: 400px;
+		}
+		#aboutMe > div{
+			padding: 6px;
+		}
+	</style>
+	<script>
+		function show(id){
+			id = id.substring(0,id.length-6);
+			var selectedBio = document.getElementById(id);
+			if(selectedBio.style.display != "none") return;
+			var frontpage = document.getElementById("frontpage");
+			var aboutMe = document.getElementById("aboutMe");
+			var career = document.getElementById("career");
+			var projects = document.getElementById("projects");
+			var contactinfo = document.getElementById("contactinfo");
+			var headerarray = [frontpage, aboutMe, career, projects, contactinfo];
+			var selectedHeader = document.getElementById(id + "Header");
+			selectedHeader.style.color = "red";
+			for(var i in headerarray){
+				if(headerarray[i].id == id) continue;
+				var header = document.getElementById(headerarray[i].id + "Header");
+				header.style.color = "black";
+				$("#" + headerarray[i].id).fadeOut();
+			}
+			$("#" + id).delay(650).fadeIn();
+		}
+		
+		function onMouseOver(header){
+			if(header.style.color != "red") {
+				var ele = header.id;
+				document.getElementById(ele).style.color = "#999E9E";
+			}
+		}
+		
+		function onMouseLeave(header){
+			if(header.style.color != "red") {
+				var ele = header.id;
+				document.getElementById(ele).style.color = "black";
+			}
+		}
+	</script>
+	<body style="margin: 0px; font-family: sans-serif; background-color: #ECF0F1">
+		<div>
+			<div>
+				<div id="header" style="position: static; bottom: 0px; right: 0px; overflow: auto">
+					<div id="headerFloat" style="float: right;	display: flex;	padding-right: 160px">
+						<div id="frontpageHeader" class="header" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
+							Front page
+						</div>
+						<div id="aboutMeHeader" class="header" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
+							About Me
+						</div>
+						<div id="careerHeader" class="header" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
+							Career
+						</div>
+						<div id="projectsHeader" class="header" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
+							Projects
+						</div>
+						<div id="contactinfoHeader" class="header" onmouseover="onMouseOver(this)" onmouseleave="onMouseLeave(this)">
+							Contact Info
+						</div>
+					</div>
+				</div>
+				<div id="linebreak" style="margin: 0px 20px 0px">
+					<hr>
+				</div>
+			</div>
+			<div id="frontpage" style="padding: 150px 120px 150px 120px; display: flex">
+				<div id="hi" style="font-size: 200px; padding: 120px 0px 100px 34%">
+					Hi
+				</div>
+				<div id="intro" style="font-size: 26px; padding: 170px 0px 0px 2%">
+					<div>
+						My name is Mohammed Azad.<br/>
+					</div>
+					<div>
+						I'm an aspiring programmer.<br />
+					</div>
+					<div>
+						This is my first web page.
+					</div>
+				</div>
+			</div>
+			<div id="aboutMe" style="display: none; padding: 250px 0px 250px 17%; font-size: 26px">
+				<div>
+					My name is Mohammed Azad. I am currently a student at Brooklyn College studying Computer Science.
+				</div>
+				<div>
+					Anything related to technology has always fascinated me because it piqued my interest in how they work.
+				</div>
+				<div>
+					Seeing how widespread this field is made me want to engage with it to see what I could make better.
+				</div>
+				<div>
+					Currently in Brooklyn College I am studying data structures, computer architecture and operations management.
+				</div>
+				<div>
+					Some of the languages and technologies that I am familiar with are: Java, C++, C, Assembly, Python, and HTML
+				</div>
+			</div>
+			<div id="career" style="display: none; font-size: 26px; padding: 20% 0px 0px 35%">
+				<div>
+					Occupation: Student.
+				</div>
+				<div>
+					This part is TBD
+				</div>
+			</div>
+			<div id="projects" style="display: none; font-size: 26px; padding: 20% 0px 0px 18%">
+				<div>
+					Project: Working on optimizing this code: <a href="https://github.com/chuckleberrynip/CISC-3130-Assignment-4">https://github.com/chuckleberrynip/CISC-3130-Assignment-4</a>
+				</div>
+			</div>
+			<div id="contactinfo" style="display: none; font-size: 26px;  padding: 20% 0px 0px 29%">
+				<div>
+					 Hey, need to contact me? Hit me up at: thalhaazad@gmail.com
+				</div>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(e2){			
+				$("#frontpageHeader").click(function(e){show(e.target.id)});
+				$("#aboutMeHeader").click(function(e){show(e.target.id)});
+				$("#careerHeader").click(function(e){show(e.target.id)});
+				$("#projectsHeader").click(function(e){show(e.target.id)});
+				$("#contactinfoHeader").click(function(e){show(e.target.id)});
+			});
+		</script>
+	</body>
+</html>
